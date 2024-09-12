@@ -12,6 +12,12 @@ struct WidgetsSettingsView: View {
         content
             .navigationTitle(L10n.Settings.Widgets.title)
             .navigationBarTitleDisplayMode(.inline)
+            
+        if #available(iOS 17.0, *) {
+            content.navigationBarItems(trailing: addNewTemplateButton)
+        }
+        
+        content
     }
 
     private var content: some View {
@@ -41,6 +47,17 @@ struct WidgetsSettingsView: View {
         .modify {
             if #available(iOS 17.0, *) {
                 $0.listSectionSpacing(.leastNonzeroMagnitude)
+            }
+        }
+    }
+
+    @available(iOS 17.0, *)
+    private var addNewTemplateButton: some View {
+        NavigationLink(destination: WidgetsSettingsAddTemplateView()) {
+            HStack {
+                Image(systemName: "plus")
+                    .imageScale(.large)
+                Text("Add")
             }
         }
     }

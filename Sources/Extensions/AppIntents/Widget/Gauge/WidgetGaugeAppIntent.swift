@@ -1,7 +1,7 @@
+import Shared
 import AppIntents
 import AudioToolbox
 import Foundation
-import Shared
 
 @available(iOS 17.0, macOS 14.0, watchOS 10.0, *)
 struct WidgetGaugeAppIntent: WidgetConfigurationIntent {
@@ -182,34 +182,4 @@ struct WidgetGaugeAppIntent: WidgetConfigurationIntent {
             }
         }
     }
-}
-
-@available(iOS 17.0, macOS 14.0, watchOS 10.0, *)
-enum GaugeTypeAppEnum: String, Codable, Sendable, AppEnum {
-    /// Represents a `Gauge` with style `accessoryCircular` and min/max labels.
-    case normal
-
-    /// Represents a `Gauge` with style `accessoryCircular` that has no min / max labels set.
-    case singleLabel
-
-    /// Represents a `Gauge` with style `accessoryCircularCapacity`.
-    case capacity
-
-    static let typeDisplayRepresentation = TypeDisplayRepresentation(
-        name: .init("widgets.gauge.parameters.gauge_type", defaultValue: "GaugeType")
-    )
-    static var caseDisplayRepresentations: [GaugeTypeAppEnum: DisplayRepresentation] = [
-        .normal: DisplayRepresentation(title: .init(
-            "widgets.gauge.parameters.gauge_type.normal",
-            defaultValue: "Normal"
-        )),
-        .singleLabel: DisplayRepresentation(title: .init(
-            "widgets.gauge.parameters.gauge_type.singleLabel",
-            defaultValue: "Normal (single label)"
-        )),
-        .capacity: DisplayRepresentation(title: .init(
-            "widgets.gauge.parameters.gauge_type.capacity",
-            defaultValue: "Capacity"
-        )),
-    ]
 }

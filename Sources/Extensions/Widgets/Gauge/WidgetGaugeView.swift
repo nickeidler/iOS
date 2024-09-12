@@ -1,5 +1,6 @@
 import SwiftUI
 import WidgetKit
+import Shared
 
 @available(iOS 17.0, *)
 struct WidgetGaugeView: View {

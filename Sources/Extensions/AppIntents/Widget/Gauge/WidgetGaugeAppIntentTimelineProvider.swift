@@ -140,23 +140,6 @@ enum WidgetGaugeDataSource {
     }
 }
 
-@available(iOS 17, *)
-struct WidgetGaugeEntry: TimelineEntry {
-    var date = Date()
-
-    var gaugeType: GaugeTypeAppEnum
-
-    var value: Double
-
-    var valueLabel: String?
-    var label: String?
-    var min: String?
-    var max: String?
-
-    var runAction: Bool
-    var action: Action?
-}
-
 enum WidgetGaugeDataError: Error {
     case noServers
     case apiError
